@@ -1,13 +1,22 @@
-import os
-import sys
 import pyautogui
-import random
-import string
 import time
+import string
+import random
 
-username = "username"
-password = "password"
-made = False
+username = ""
+password = ""
+previous = ""
+version = "1.1"
+default_comment = "Randomized message created by WorldBott."
+
+status = [
+    "Online",
+    "Away",
+    "Busy",
+    "Invisible",
+    "Offline",
+    "Looking to trade"
+]
 messages = ["Hey",
             "Wow I feel like a bot...", 
             "Shoutout to (@colack)", 
@@ -57,32 +66,137 @@ messages = ["Hey",
             "┬┴┬┴┤ᵒᵏ (･_├┬┴┬┴",
             "ᕙ(⇀‸↼‶)ᕗ",
             "(ᗒᗣᗕ)՞",
-            "(@colack) mentioned me (ﾍﾟ◇ﾟ)」"]
+            "(@colack) mentioned me (ﾍﾟ◇ﾟ)」",
+            "Hello World!",
+            "Hello [WUT] World!",
+            "THIS IS COPILOT SPEAKING: I AM A BOT!",
+            "Why am i here?"]
 
-def start():
-    pyautogui.moveTo(1760, 0, duration = 1)
-    pyautogui.click(1760, 0)
+# Like and Comment
+def like():
+    # Move to the like button and click it.
+    pyautogui.moveTo(775, 730, duration = 1)
+    pyautogui.click(775, 730)
+
+    # Move to the comment box and click it.
+    pyautogui.moveTo(1140, 730, duration=1)
+    pyautogui.click(1140, 730)
+
+    # Move to the comment field and type the default comment.
+    pyautogui.moveTo(1140, 700, duration = 1)
+    pyautogui.click(1140, 700)
+    pyautogui.typewrite(default_comment)
+
+    # Type "ENTER" to submit the comment.
+    pyautogui.press('enter')
+
+    # Move to the exit button and click it.
+    pyautogui.moveTo(775, 200, duration = 1)
+    pyautogui.click(775, 200)
+
+# Generate a new status
+def statusChange():
+    # Move to the Profile button and click it
+    pyautogui.moveTo(1050, 745, duration=1)
+    pyautogui.click(1050, 745)
+
+    # Move to the edit button and click it.
+    pyautogui.moveTo(800, 310, duration = 1)
+    pyautogui.click(800, 310)
+
+    # Move to the text box and click it.
     pyautogui.moveTo(1032, 280, duration = 1)
     pyautogui.click(1032, 280)
+
+    # Type "CTRL + A" to select all the text.
+    pyautogui.keyDown('ctrl')
+    pyautogui.press('a')
+    
+    # Type "DELETE" to delete the text.
+    pyautogui.keyUp('ctrl')
+    pyautogui.press('delete')
+
+    # Type the new status
+    pyautogui.typewrite(random.choice(status))
+
+    # Move to the save button and click it.
+    pyautogui.moveTo(1100, 730, duration=1)
+    pyautogui.click(1100, 730)
+
+# Start and Login
+def start():
+    # Print the name and version of the bot.
+    print("WorldBott " + version + " is starting...")
+
+    # Close visual studio code
+    pyautogui.moveTo(1760, 0, duration = 1)
+    pyautogui.click(1760, 0)
+
+    # Move to the username field
+    pyautogui.moveTo(1032, 280, duration = 1)
+    pyautogui.click(1032, 280)
+
+    # Type the username
     pyautogui.typewrite(username)
+
+    # Move to the password field
     pyautogui.moveTo(1032, 325, duration = 1)
     pyautogui.click(1032, 325)
+
+    # Type the password
     pyautogui.typewrite(password)
+
+    # Hit the login button
     pyautogui.moveTo(1032, 380, duration = 1)
     pyautogui.click(1000, 380)  
 
+    # Successfully logged in
+    print("WorldBott has successfully logged in!")
+    print("Starting the main script...")
+
+    # Start the script
+    create()
+
+# Create a random message, and send it.
 def create():
+    # Move to the create button
     pyautogui.moveTo(965, 730, duration = 1)
     pyautogui.click(965, 730)
     pyautogui.click(965, 730)
+
+    # Go to the message area.
     pyautogui.moveTo(1032, 280, duration = 1)
     pyautogui.click(1032, 280)
+
+    # Create a new message
     message = random.choice(messages)
+    previous = message
+
+    # Make sure that the message is not the same as the previous message
+    if message == previous:
+        message = random.choice(messages)
+
+    # Type the message    
     pyautogui.typewrite(message)
+
+    # Hit the post button
     pyautogui.moveTo(1100, 400, duration = 1)
     pyautogui.click(1100, 400)
-    time.sleep(120)
+
+    # Wait a bit for the message to be posted.
+    time.sleep(10)
+
+    # Like and comment on the message.
+    like()
+
+    # Change the current status to a new status.
+    statusChange()
+
+    # Wait for a random amount of time between 30 minutes to 2 hours.
+    time.sleep(43200)
+
+    # Repeat the process
     create()
 
+# Start the script
 start()
-create()
