@@ -2,6 +2,7 @@ import pyautogui
 import time
 import string
 import random
+import requests
 
 username = ""
 password = ""
@@ -71,6 +72,21 @@ messages = ["Hey",
             "Hello [WUT] World!",
             "THIS IS COPILOT SPEAKING: I AM A BOT!",
             "Why am i here?"]
+prompts = [
+    "The",
+    "Of",
+    "And",
+    "A",
+    "To",
+    "I",
+    "You",
+    "He",
+    "She",
+    "It",
+    "We",
+    "They",
+    "Them"
+]
 
 # Like and Comment
 def like():
@@ -168,13 +184,37 @@ def create():
     pyautogui.moveTo(1032, 280, duration = 1)
     pyautogui.click(1032, 280)
 
-    # Create a new message
-    message = random.choice(messages)
-    previous = message
-
-    # Make sure that the message is not the same as the previous message
-    if message == previous:
+    # Create a random number between 1 and 10.
+    random_number = random.randint(1, 10)
+    
+    if random_number == 1:
+        # Create a random string of numbers and letters
+        random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
+        message = random_string + " <-- My new favorite word!"
+    elif random_number == 2:
+        # Grab a random prompt and send it to the deep ai model.
+        r = requests.post(
+            "https://api.deepai.org/api/text-generator",
+        data={
+            'text': random.choice(prompts),
+        },
+            headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
+        )
+        message = r.json()['output']
+    elif random_number == 3:
+        # Grab a random dad joke of the internet.
+        url = "https://icanhazdadjoke.com/"
+        responce = requests.get(url, headers={"Accept": "application/json"})
+        message = responce.json()['joke']
+    elif random_number == 4:
+        message = ":D"
+    else:
+        # Create a new message
         message = random.choice(messages)
+        previous = message
+        # Make sure that the message is not the same as the previous message.
+        while message == previous:
+            message = random.choice(messages)
 
     # Type the message    
     pyautogui.typewrite(message)
@@ -192,7 +232,7 @@ def create():
     # Change the current status to a new status.
     statusChange()
 
-    # Wait for a random amount of time between 30 minutes to 2 hours.
+    # Wait 12 hours to post again.
     time.sleep(43200)
 
     # Repeat the process
