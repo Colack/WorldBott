@@ -4,6 +4,9 @@ import string
 import random
 import requests
 
+# Built for a 1920/1080 windows computer, with size 125%+
+# Visual studio code needs to be open first, with google behind it.
+
 username = ""
 password = ""
 previous = ""
@@ -90,6 +93,10 @@ prompts = [
 
 # Like and Comment
 def like():
+    # Click the post
+    pyautogui.moveTo(775, 300, duration = 1)
+    pyautogui.click(775, 300)
+
     # Move to the like button and click it.
     pyautogui.moveTo(775, 730, duration = 1)
     pyautogui.click(775, 730)
