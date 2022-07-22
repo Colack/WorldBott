@@ -207,7 +207,7 @@ def create():
         responce = requests.get(url, headers={"Accept": "application/json"})
         message = responce.json()['joke']
     elif random_number == 4:
-        message = ":D"
+        message = "✌(ツ)"
     else:
         # Create a new message
         message = random.choice(messages)
