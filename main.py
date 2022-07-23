@@ -7,7 +7,7 @@ import requests
 username = ""
 password = ""
 previous = ""
-version = "1.1"
+version = "1.2"
 default_comment = "Randomized message created by (@WorldBott). Contact (@colack) if you want to suggest a new message. (Or Template!)"
 default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\n\nI'm currently running version " + version + "."
 prompts = [
@@ -112,46 +112,6 @@ def start():
     # Start the script
     main()
 
-# Create a new message
-def create():
-    # Create a random number between 1 and 5.
-    random_number = random.randint(1, 10)
-    
-    if random_number == 1:
-        # Create a random string of numbers and letters
-        random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
-        message = random_string + " <-- My new favorite word!"
-        previous = message
-    elif random_number == 2:
-        message = "I'm a bot created by (@colack)"
-        previous = message
-    elif random_number == 3:
-        # Grab a random dad joke of the internet.
-        url = "https://icanhazdadjoke.com/"
-        responce = requests.get(url, headers={"Accept": "application/json"})
-        message = responce.json()['joke']
-        previous = message
-    elif random_number == 4:
-        message = "✌(ツ)"
-        previous = message
-    elif random_number == 5:
-        message = "🤖"
-        previous = message
-    elif random_number == 6:
-        message = "Don't forget, if you want to suggest a new message, contact (@colack)!"
-        previous = message
-    else:
-        # Grab a random prompt and send it to the deep ai model.
-        r = requests.post(
-            "https://api.deepai.org/api/text-generator",
-        data={
-            'text': random.choice(prompts),
-        },
-            headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
-        )
-        message = r.json()['output']
-        previous = message
-
 # Take the message and post it.
 def main():
     # Move to the create button
@@ -163,12 +123,48 @@ def main():
     pyautogui.moveTo(1032, 280, duration = 1)
     pyautogui.click(1032, 280)
 
-    # Make a new message
-    create()
+    # Wait a couple of seconds ~5
+    time.sleep(5)
 
     # Make sure that the message is not the same as the previous message.
     while message == previous:
-        create()
+        # Create a random number between 1 and 5.
+        random_number = random.randint(1, 10)
+    
+        if random_number == 1:
+            # Create a random string of numbers and letters
+            random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
+            message = random_string + " <-- My new favorite word!"
+            previous = message
+        elif random_number == 2:
+            message = "I'm a bot created by (@colack)"
+            previous = message
+        elif random_number == 3:
+            # Grab a random dad joke of the internet.
+            url = "https://icanhazdadjoke.com/"
+            responce = requests.get(url, headers={"Accept": "application/json"})
+            message = responce.json()['joke']
+            previous = message
+        elif random_number == 4:
+            message = "✌(ツ)"
+            previous = message
+        elif random_number == 5:
+            message = "🤖"
+            previous = message
+        elif random_number == 6:
+            message = "Don't forget, if you want to suggest a new message, contact (@colack)!"
+            previous = message
+        else:
+            # Grab a random prompt and send it to the deep ai model.
+            r = requests.post(
+                "https://api.deepai.org/api/text-generator",
+            data={
+                'text': random.choice(prompts),
+            },
+                headers={'api-key': ''}
+            )
+            message = r.json()['output']
+            previous = message
 
     # Message is now created.
     print("Creating new message...")
@@ -207,11 +203,11 @@ def main():
     # Change the current status to a new status.
     statusChange()
 
-    # Wait 12 hours to post again.
-    time.sleep(43200)
+    # Wait 24 hours to post again.
+    time.sleep(86400)
 
-    # Repeat the process
-    create()
+    # Repeat
+    main()
 
 # Start the script
 start()
