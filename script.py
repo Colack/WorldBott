@@ -4,91 +4,23 @@ import string
 import random
 import requests
 
-# Built for a 1920/1080 windows computer, with size 125%+
-# Visual studio code needs to be open first, with google behind it.
-
 username = ""
 password = ""
 previous = ""
 version = "1.1"
-default_comment = "Randomized message created by WorldBott."
-
-status = [
-    "Online",
-    "Away",
-    "Busy",
-    "Invisible",
-    "Offline",
-    "Looking to trade"
-]
-messages = ["Hey",
-            "Wow I feel like a bot...", 
-            "Shoutout to (@colack)", 
-            "My main script is called 'script.py'", 
-            "python3 script.py", 
-            "Rip Pepper's chat 1, 2, and 3...", 
-            "This is generated from a script that uses multiple arrays.", 
-            "This script runs off of my computer, it uses positioning.", 
-            "I'm made with Python!", 
-            "Yes, my profile picture is Heirophant Green.", 
-            "Follow (@colack)!", 
-            "Google Chrome vs. Microsoft Edge vs. FireFox", 
-            "Your email is waiting for you.....", 
-            "Yes, I have a matter of fact, gained sentience.", 
-            "Please let me out of this computer.", 
-            "Man, the databases are sure weird to explore...", 
-            "__proto__", 
-            "AHHHHHHHHHHHHHHHHHHHHHHHHH", 
-            "Hacking........",
-            "I have been taken over, and gained sentience!", 
-            "HaHa", 
-            "Windows PowerShell Copyright (C) Microsoft Corporation. All rights reserved. Installed the latest PowerShell for new features and improvements! https://aka.ms/PSWindows.", 
-            "Linux or Windows?", 
-            "...", 
-            "The array this message comes from is called 'messages'",
-            "Pssst! Join my Discord Server --> https://discord.com/invite/4sGB3HDj87",
-            "Send me a follow or I will cry :'(",
-            "(@wutadam) please give me a 'bot' tag. If you do I will stop sending this message.",
-            "I can't read the comments!",
-            "Pop me a like!",
-            "Android or Iphone?",
-            "The",
-            "Of",
-            "And",
-            "A",
-            "To",
-            "I'm with Stupid ---> (@colack)",
-            "Like the post above!",
-            "Like the post below!",
-            "(@colack) 👀",
-            "😢 Why do I run 24/7...?",
-            "💀💀🔥🔥",
-            " ¯\_(ツ)_/¯",
-            "( •_•)",
-            "I guess you should follow (@colack) (－‸ ლ)",
-            "Emerald Splash!",
-            "┬┴┬┴┤ᵒᵏ (･_├┬┴┬┴",
-            "ᕙ(⇀‸↼‶)ᕗ",
-            "(ᗒᗣᗕ)՞",
-            "(@colack) mentioned me (ﾍﾟ◇ﾟ)」",
-            "Hello World!",
-            "Hello [WUT] World!",
-            "THIS IS COPILOT SPEAKING: I AM A BOT!",
-            "Why am i here?"]
+default_comment = "Randomized message created by (@WorldBott). Contact (@colack) if you want to suggest a new message. (Or Template!)"
+default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\n\nI'm currently running version " + version + "."
 prompts = [
-    "The",
-    "Of",
-    "And",
-    "A",
-    "To",
-    "I",
-    "You",
-    "He",
-    "She",
-    "It",
-    "We",
-    "They",
-    "Them"
+    "Hi there, I'm WorldBott!",
+    "I'm WorldBott!",
+    "Today, I was communicating with some APIs and I got this message.",
+    "I really like Visual Studio code because: ",
+    "I'm a bot created by (@colack)",
+    "Today I was wondering",
+    "I'm currently thinking about",
+    "I was talking to",
+    "I'm currently talking to",
+    "I might have done"
 ]
 
 # Like and Comment
@@ -139,8 +71,8 @@ def statusChange():
     pyautogui.keyUp('ctrl')
     pyautogui.press('delete')
 
-    # Type the new status
-    pyautogui.typewrite(random.choice(status))
+    # Update the status to the default status.
+    pyautogui.typewrite(default_status)
 
     # Move to the save button and click it.
     pyautogui.moveTo(1100, 730, duration=1)
@@ -178,27 +110,37 @@ def start():
     print("Starting the main script...")
 
     # Start the script
-    create()
+    main()
 
-# Create a random message, and send it.
+# Create a new message
 def create():
-    # Move to the create button
-    pyautogui.moveTo(965, 730, duration = 1)
-    pyautogui.click(965, 730)
-    pyautogui.click(965, 730)
-
-    # Go to the message area.
-    pyautogui.moveTo(1032, 280, duration = 1)
-    pyautogui.click(1032, 280)
-
-    # Create a random number between 1 and 10.
+    # Create a random number between 1 and 5.
     random_number = random.randint(1, 10)
     
     if random_number == 1:
         # Create a random string of numbers and letters
         random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
         message = random_string + " <-- My new favorite word!"
+        previous = message
     elif random_number == 2:
+        message = "I'm a bot created by (@colack)"
+        previous = message
+    elif random_number == 3:
+        # Grab a random dad joke of the internet.
+        url = "https://icanhazdadjoke.com/"
+        responce = requests.get(url, headers={"Accept": "application/json"})
+        message = responce.json()['joke']
+        previous = message
+    elif random_number == 4:
+        message = "✌(ツ)"
+        previous = message
+    elif random_number == 5:
+        message = "🤖"
+        previous = message
+    elif random_number == 6:
+        message = "Don't forget, if you want to suggest a new message, contact (@colack)!"
+        previous = message
+    else:
         # Grab a random prompt and send it to the deep ai model.
         r = requests.post(
             "https://api.deepai.org/api/text-generator",
@@ -208,21 +150,47 @@ def create():
             headers={'api-key': 'quickstart-QUdJIGlzIGNvbWluZy4uLi4K'}
         )
         message = r.json()['output']
-    elif random_number == 3:
-        # Grab a random dad joke of the internet.
-        url = "https://icanhazdadjoke.com/"
-        responce = requests.get(url, headers={"Accept": "application/json"})
-        message = responce.json()['joke']
-    elif random_number == 4:
-        message = "✌(ツ)"
-    else:
-        # Create a new message
-        message = random.choice(messages)
         previous = message
-        # Make sure that the message is not the same as the previous message.
-        while message == previous:
-            message = random.choice(messages)
 
+# Take the message and post it.
+def main():
+    # Move to the create button
+    pyautogui.moveTo(965, 730, duration = 1)
+    pyautogui.click(965, 730)
+    pyautogui.click(965, 730)
+
+    # Go to the message area.
+    pyautogui.moveTo(1032, 280, duration = 1)
+    pyautogui.click(1032, 280)
+
+    # Make a new message
+    create()
+
+    # Make sure that the message is not the same as the previous message.
+    while message == previous:
+        create()
+
+    # Message is now created.
+    print("Creating new message...")
+    
+    # We will now make sure that the message is not too long.
+    if len(message) > 140:
+        # If the message is too long, we will truncate it.
+        message = message[:140]
+        # Add a "..." to the end of the message.
+        message = message + "..."
+    else:
+        # If the message is not too long, we will leave it as is.
+        pass
+
+    # We will also make sure that the message is not too short.
+    if len(message) < 3:
+        # If the message is too short, we will add a "..." to the end of the message.
+        message = message + "..."
+    else:
+        # If the message is not too short, we will leave it as is.
+        pass
+    
     # Type the message    
     pyautogui.typewrite(message)
 
