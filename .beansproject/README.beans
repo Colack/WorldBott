@@ -1,0 +1,30 @@
+Beans!
+: WorldBott README
+header WorldBott
+wait 0.5
+print WorldBott is a proof-off-concept bot I made for [WUT] World.
+print It uses Python to control the mouse and post messages to the app.
+wait 5
+header Libraries
+wait 0.5
+print pyautogui
+print time
+print string
+print random
+print requests
+wait 5
+header APIS
+wait 0.5
+print DeepAI
+print icanhazdadjoke
+wait 5 
+header Notes
+print Your computer needs to have something like Visual Studio Code open first,
+print and google chrome or whatever browser you are using in the background.
+wait 0.5
+print You will also need to have your computers scale changed to 125%.
+wait 5
+header Final Notes
+wait 0.5
+print [WUT] World made by wutadam.
+print WorldBott made by Colack.
