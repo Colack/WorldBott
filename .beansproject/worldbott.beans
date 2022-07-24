@@ -12,6 +12,10 @@ print time
 print string
 print random
 print requests
+print os
+print sys
+print subprocess
+print pysimplegui
 wait 5
 header APIS
 wait 0.5
