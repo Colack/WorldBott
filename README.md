@@ -2,16 +2,8 @@
 [WorldBott](https://github.com/Colack/WorldBott/) is a proof-of-concept bot that I made for [[WUT] World](https://studio.code.org/projects/applab/307ZOMkSuj8A6nSgGn_3E-tJTUcm4lhwFg-6rhIbVzs).    
 It uses Python to control the Mouse and post messages to the app.    
 You can view the bots profile [here.](https://studio.code.org/projects/applab/307ZOMkSuj8A6nSgGn_3E-tJTUcm4lhwFg-6rhIbVzs?user=132)    
-## Libraries   
-- [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/)
-- Time  
-- String  
-- random  
-- requests  
-- os
-- sys
-- subprocess
-- [PySimpleGUI](https://pypi.org/project/PySimpleGUI/)
+## Libraries
+You can view all of the libraries the bot uses [here.](https://github.com/Colack/WorldBott/blob/main/src/imports.py)
 ## APIS
 - [DeepAI](https://deepai.org/)   
 - [icanhazdadjoke](https://icanhazdadjoke.com/)  
