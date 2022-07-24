@@ -24,6 +24,41 @@ WINDOW_CLOSE_VS_CODE = ""
 WINDOW_RELOAD = ""
 WINDOW_TEST_TIME = ""
 
+# Upcoming Features
+TODO = [
+    "Add a way to change the username and password using a GUI",
+    "Add a way to change the starting message using a GUI",
+    "Add a way to change the API key using a GUI",
+    "Add new custom messages using a GUI",
+    "Have custom messages be stored inside of a text file.",
+    "Give the bot the ability to read comments.",
+    "Give the bot the ability to read posts.",
+    "Give the bot the ability to read messages.",
+    "Give the bot the ability to read likes.",
+    "Have the bot grab its own link, communicate with a Discord bot, and send messages to a Discord channel.",
+    "Discord Integration?",
+    "Get the bot a custom nameplate.",
+    "Get the bot a 'bot' role.",
+    "Get the bot to follow other users.",
+    "Have the bot communicate with another bot."
+]
+
+# Completed Features
+COMPLETED = [
+    "The Bot can close VS Code.",
+    "The Bot can reload the page.",
+    "The Bot can test the time values.",
+    "The Bot can go to a specific field.",
+    "The Bot can log itself in.",
+    "The Bot can send messages, and custom images.",
+    "The Bot can send custom messages.",
+    "The Bot can use API's to get information, then post about that information.",
+    "The Bot can like, and comment on its own posts.",
+    "The Bot has its own GUI. (SomeWhat Completed)",
+    "The Bot can select text, and delete it.",
+    "The Bot has a developer mode."
+]
+
 # Maximum Values
 MAX_POSTS = 100
 MAX_LIKES = 100
