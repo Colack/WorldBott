@@ -1,3 +1,4 @@
 from func import *
 
-start()
+# Main Function
+start_app()
