@@ -5,23 +5,6 @@ wait 0.5
 print WorldBott is a proof-off-concept bot I made for [WUT] World.
 print It uses Python to control the mouse and post messages to the app.
 wait 5
-header Libraries
-wait 0.5
-print pyautogui
-print time
-print string
-print random
-print requests
-print os
-print sys
-print subprocess
-print pysimplegui
-wait 5
-header APIS
-wait 0.5
-print DeepAI
-print icanhazdadjoke
-wait 5 
 header Notes
 print Your computer needs to have something like Visual Studio Code open first,
 print and google chrome or whatever browser you are using in the background.
