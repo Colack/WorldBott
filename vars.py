@@ -1,3 +1,5 @@
+from imports import *
+
 # This file contains all of the Variables that the bot Uses.
 
 # ~~ Oraganization ~~
@@ -5,14 +7,22 @@
 # Why does Python not have a #DEFINE statement?
 
 # API KEY
-key = "YOUR_DEEPAI_API_KEY"
+key = ""
 
 # Username and Password
-username = "YOUR_USERNAME"
-password = "YOUR_PASSWORD"
+username = ""
+password = ""
 
 # Starting Message.
 starting_message = "<-- WorldBott has Woken Up! -->"
+
+# Window Names
+WINDOW_PROMPT = "WorldBott Prompt"
+WINDOW_USERNAME = "Username Input"
+WINDOW_PASSWORD = "Password Input"
+WINDOW_CLOSE_VS_CODE = ""
+WINDOW_RELOAD = ""
+WINDOW_TEST_TIME = ""
 
 # Maximum Values
 MAX_POSTS = 100
@@ -36,6 +46,17 @@ RELOAD_TIME = 10
 HIGH_TIME = 5.5
 LOW_TIME = 1.5
 QUICK_TIME = 0.5
+
+# Title of the Window
+TITLE = "WorldBott"
+
+# Window Size
+WINDOW_X = 100
+WINDOW_Y = 50
+
+# Default Element Sizes
+DEFAULT_WIDTH = 20
+DEFAULT_HEIGHT = 2
 
 # Current Version of the Bot.
 version = "2.0"
@@ -76,3 +97,15 @@ defaultRandString = " <-- My new favorite word!"
 
 # Josuke Laugh Meme
 josuke_laugh = "https://i.kym-cdn.com/photos/images/original/001/177/975/e0e.gif"
+
+# GUI WILL BE IMPLEMENTED SOON!
+# Just wait ~1-Week
+
+# Window Layout
+layout = [
+    [sg.Text("WorldBott Version " + version)],
+    [sg.Button("Start")], [sg.Button("Exit")],
+    [sg.Text("Username"), sg.InputText(key="username")],
+    [sg.Text("Password"), sg.InputText(key="password")],
+    [sg.Button("Submit"), sg.Button("Submit")],
+]
