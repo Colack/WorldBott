@@ -3,7 +3,7 @@ from vars import *
 
 # This file contains all of the functions that the bot uses.
 
-# Turn On or off the GUI.
+# GUI that the bot uses to select certain options.
 def start_app():
     close = sg.popup_yes_no("Close Visual Studio Code?", WINDOW_CLOSE_VS_CODE)
     if close == "Yes":
@@ -21,6 +21,15 @@ def start_app():
     else:
         print("Not testing the time values.")
     start()
+
+# -MAIN STARTING FUNCTION-
+def megaStart(type):
+    if type == "dev":
+        # Start the bot in dev mode.
+        start_app()
+    elif type == "reg":
+        closeVsCode()
+        start()
 
 # Test different time values.
 def testTime(skip):
