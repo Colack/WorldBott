@@ -1,4 +1,4 @@
 from func import *
 
-# Main Function
-start_app()
+# Start the Application
+megaStart("reg")
