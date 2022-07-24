@@ -3,6 +3,42 @@ from vars import *
 
 # This file contains all of the functions that the bot uses.
 
+# Turn On or off the GUI.
+def start_app():
+    close = sg.popup_yes_no("Close Visual Studio Code?", WINDOW_CLOSE_VS_CODE)
+    if close == "Yes":
+        closeVsCode()
+    else:
+        print("Not closing VS Code.")
+    reload_ = sg.popup_yes_no("Reload the page?", WINDOW_RELOAD)
+    if reload_ == "Yes":
+        reload()
+    else:
+        print("Not reloading the page.")
+    time_ = sg.popup_yes_no("Test the time values?", WINDOW_TEST_TIME)
+    if time_ == "Yes":
+        testTime(False)
+    else:
+        print("Not testing the time values.")
+    start()
+
+# Test different time values.
+def testTime(skip):
+    time.sleep(HIGH_TIME)
+    print("High Time: " + str(HIGH_TIME))
+    time.sleep(RELOAD_TIME)
+    print("Reload Time: " + str(RELOAD_TIME))
+    time.sleep(QUICK_TIME)
+    print("Quick Time: " + str(QUICK_TIME))
+    time.sleep(LOW_TIME)
+    print("Low Time: " + str(LOW_TIME))
+    if (skip == True):
+        time.sleep(0.5)
+        print("Skipping...")
+    else:
+        time.sleep(WAIT_TIME)
+        print("Wait Time: " + str(WAIT_TIME))
+
 # Close Visual Studio Code
 def closeVsCode():
     # Close visual studio code
@@ -142,8 +178,6 @@ def like():
 # Start and Login
 def start():
     printer("start")
-    closeVsCode()
-    reload()
     time.sleep(HIGH_TIME)
     field("username", True)
     ctrlADelete()
