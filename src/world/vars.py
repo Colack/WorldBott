@@ -6,12 +6,17 @@ from imports import *
 
 # Why does Python not have a #DEFINE statement?
 
+load_dotenv()
+USER = os.getenv('USERNAME')
+PASS = os.getenv('PASSWORD')
+API = os.getenv('KEY')
+
 # API KEY
-key = ""
+key = API
 
 # Username and Password
-username = ""
-password = ""
+username = USER
+password = PASS
 
 # Starting Message.
 starting_message = "<-- WorldBott has Woken Up! -->"
@@ -144,12 +149,12 @@ DEFAULT_WIDTH = 20
 DEFAULT_HEIGHT = 2
 
 # Current Version of the Bot.
-version = "2.0"
-num_version = 2.0
+version = "2.1"
+num_version = 2.1
 
 # Defaults
 default_comment = "AI-Generated message created by (@WorldBott). Contact (@colack) if you want to suggest a new message. (Or Template!)"
-default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\n\nI'm currently running version " + version + "."
+default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\nI'm currently running version " + version + "."
 default_message = ":)"
 
 # Prompts for the Deep AI.
