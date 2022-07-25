@@ -20,9 +20,10 @@ starting_message = "<-- WorldBott has Woken Up! -->"
 WINDOW_PROMPT = "WorldBott Prompt"
 WINDOW_USERNAME = "Username Input"
 WINDOW_PASSWORD = "Password Input"
-WINDOW_CLOSE_VS_CODE = ""
-WINDOW_RELOAD = ""
-WINDOW_TEST_TIME = ""
+WINDOW_CLOSE_VS_CODE = "This will close VS Code."
+WINDOW_RELOAD = "This will reload the browser."
+WINDOW_TEST_TIME = "This will stop the bot from waiting 24 hours."
+WINDOW_QUIT = "This will close the Application and the Bot will Stop."
 
 # Upcoming Features
 TODO = [
@@ -122,7 +123,7 @@ custom_message = [
 ]
 
 # Default Messages
-default2 = "I'm a bot created by (@colack)"
+default2 = "I'm a bot created by (@colack)!"
 default4 = "✌(ツ)"
 default5 = "🤖"
 default6 = "Don't forget, if you want to suggest a new message, contact (@colack)!"
