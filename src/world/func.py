@@ -84,11 +84,6 @@ def printValues():
     print("WINDOW_X: " + str(WINDOW_X))
     print("WINDOW_Y: " + str(WINDOW_Y))
     
-
-
-    
-
-
 # Test different time values.
 def testTime(skip):
     time.sleep(HIGH_TIME)
