@@ -22,12 +22,23 @@ def start_app():
         print("Not testing the time values.")
     start()
 
+# Ask if the user wants to Quit Operations.
+def quitAsk():
+    quit_ = sg.popup_yes_no("Quit Operations?", WINDOW_QUIT)
+    if quit_ == "Yes":
+        print("Aborting...")
+        quit()
+    else:
+        print("Not quitting.")
+    time.sleep(QUICK_TIME)
+    main()
+
 # -MAIN STARTING FUNCTION-
 def megaStart(type):
-    if type == "dev":
+    if type == "reg":
         # Start the bot in dev mode.
         start_app()
-    elif type == "reg":
+    elif type == "easy":
         closeVsCode()
         start()
 
@@ -270,5 +281,6 @@ def main():
     field("post", True)
     time.sleep(HIGH_TIME)
     like()
+    quitAsk()
     time.sleep(WAIT_TIME)
     main()
