@@ -33,6 +33,17 @@ def quitAsk():
     time.sleep(QUICK_TIME)
     main()
 
+# Print Lists
+def printLists(type):
+    if type == "TODO":
+        print("TODO:")
+        for i in TODO:
+            print(i)
+    elif type == "DONE":
+        print("COMPLETED:")
+        for i in COMPLETED:
+            print(i)
+
 # -MAIN STARTING FUNCTION-
 def megaStart(type):
     if type == "reg":
@@ -41,6 +52,42 @@ def megaStart(type):
     elif type == "easy":
         closeVsCode()
         start()
+
+def printValues():
+    print("Key: " + key)
+    print("Username: " + username)
+    print("Password: " + password)
+    print("Starting Message: " + starting_message)
+    print("Window Prompt: " + WINDOW_PROMPT)
+    print("Window Username: " + WINDOW_USERNAME)
+    print("Window Password: " + WINDOW_PASSWORD)
+    print("Window Close VS Code: " + WINDOW_CLOSE_VS_CODE)
+    print("Window Reload: " + WINDOW_RELOAD)
+    print("Window Test Time: " + WINDOW_TEST_TIME)
+    print("Window Quit: " + WINDOW_QUIT)
+    print("Max Posts: " + str(MAX_POSTS))
+    print("Max Comments: " + str(MAX_COMMENTS))
+    print("Max Likes: " + str(MAX_LIKES))
+    print("Max Text: " + str(MAX_TEXT))
+    print("Min Posts: " + str(MIN_POSTS))
+    print("Min Comments: " + str(MIN_COMMENTS))
+    print("Min Likes: " + str(MIN_LIKES))
+    print("Min Text: " + str(MIN_TEXT))
+    print("Low Rand: " + str(LOW_RAND))
+    print("High Rand: " + str(HIGH_RAND))
+    print("Wait Time: " + str(WAIT_TIME))
+    print("Quick Time: " + str(QUICK_TIME))
+    print("Reload Time: " + str(RELOAD_TIME))
+    print("High Time: " + str(HIGH_TIME))
+    print("Low Time: " + str(LOW_TIME))
+    print("Title: " + TITLE)
+    print("WINDOW_X: " + str(WINDOW_X))
+    print("WINDOW_Y: " + str(WINDOW_Y))
+    
+
+
+    
+
 
 # Test different time values.
 def testTime(skip):
