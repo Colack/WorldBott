@@ -5,22 +5,25 @@ from vars import *
 
 # GUI that the bot uses to select certain options.
 def start_app():
-    close = sg.popup_yes_no("Close Visual Studio Code?", WINDOW_CLOSE_VS_CODE)
+    close = sg.popup_yes_no("Minimize Visual Studio Code?", WINDOW_CLOSE_VS_CODE)
     if close == "Yes":
         closeVsCode()
     else:
         print("Not closing VS Code.")
-    reload_ = sg.popup_yes_no("Reload the page?", WINDOW_RELOAD)
+    reload_ = sg.popup_yes_no("Reload the web page?", WINDOW_RELOAD)
     if reload_ == "Yes":
         reload()
     else:
         print("Not reloading the page.")
-    time_ = sg.popup_yes_no("Test the time values?", WINDOW_TEST_TIME)
-    if time_ == "Yes":
-        testTime(False)
-    else:
-        print("Not testing the time values.")
     start()
+
+# List all possible nameplates.
+def listNameplates():
+    print("Nameplates:")
+    for i in nameplate_list:
+        print(i)
+    print("")
+    time.sleep(QUICK_TIME)
 
 # Ask if the user wants to Quit Operations.
 def quitAsk():
@@ -53,6 +56,7 @@ def megaStart(type):
         closeVsCode()
         start()
 
+# Prints all variables to the console.
 def printValues():
     print("Key: " + key)
     print("Username: " + username)
@@ -295,11 +299,16 @@ def main():
 
         message = defaultRandom + url 
     else:
-        # Grab a random prompt and send it to the deep ai model.
+        # Grab a prompt from the 'prompts.txt' file.
+        with open("prompts.txt", "r") as f:
+            lines = f.readlines()
+        random_number = random.randint(0, len(lines) - 1)
+        m = lines[random_number]
+
         r = requests.post(
             "https://api.deepai.org/api/text-generator",
         data={
-            'text': random.choice(prompts),
+            'text': m,
         },
             headers={'api-key': key}
         )
