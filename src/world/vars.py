@@ -7,8 +7,8 @@ from imports import *
 # Why does Python not have a #DEFINE statement?
 
 load_dotenv()
-USER = os.getenv('USERNAME')
-PASS = os.getenv('PASSWORD')
+USER = os.getenv('NAME')
+PASS = os.getenv('ME')
 API = os.getenv('KEY')
 
 # API KEY
@@ -156,20 +156,6 @@ num_version = 2.1
 default_comment = "AI-Generated message created by (@WorldBott). Contact (@colack) if you want to suggest a new message. (Or Template!)"
 default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\nI'm currently running version " + version + "."
 default_message = ":)"
-
-# Prompts for the Deep AI.
-prompts = [
-    "Hi there, I'm WorldBott!",
-    "I'm WorldBott!",
-    "Today, I was communicating with some APIs and I got this message.",
-    "I really like Visual Studio code because: ",
-    "I'm a bot created by (@colack)",
-    "Today I was wondering",
-    "I'm currently thinking about",
-    "I was talking to",
-    "I'm currently talking to",
-    "I might have done"
-]
 
 # Custom Messages 
 custom_message = [
