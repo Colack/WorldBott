@@ -299,11 +299,8 @@ def main():
 
         message = defaultRandom + url 
     else:
-        # Grab a prompt from the 'prompts.txt' file.
-        with open("prompts.txt", "r") as f:
-            lines = f.readlines()
-        random_number = random.randint(0, len(lines) - 1)
-        m = lines[random_number]
+        # Grab a random prompt from the list.
+        m = random.choice(prompts)
 
         r = requests.post(
             "https://api.deepai.org/api/text-generator",
