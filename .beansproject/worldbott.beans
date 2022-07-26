@@ -2,8 +2,8 @@ Beans!
 : WorldBott README
 header WorldBott
 wait 0.5
-print WorldBott is a proof-off-concept bot I made for [WUT] World.
-print It uses Python to control the mouse and post messages to the app.
+print WorldBott is a collection of programs that I made for [WUT] World.
+print It is written with Python.
 wait 5
 header Notes
 print Your computer needs to have something like Visual Studio Code open first,
