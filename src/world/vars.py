@@ -29,19 +29,18 @@ WINDOW_CLOSE_VS_CODE = "This will close VS Code."
 WINDOW_RELOAD = "This will reload the browser."
 WINDOW_TEST_TIME = "This will stop the bot from waiting 24 hours."
 WINDOW_QUIT = "This will close the Application and the Bot will Stop."
+WINDOW_CUSTOM = "This will change the custom message."
 
 # Upcoming Features
 TODO = [
     "Add a way to change the username and password using a GUI",
     "Add a way to change the starting message using a GUI",
     "Add a way to change the API key using a GUI",
-    "Add new custom messages using a GUI",
-    "Have custom messages be stored inside of a text file.",
     "Give the bot the ability to read comments.",
     "Give the bot the ability to read posts.",
     "Give the bot the ability to read messages.",
     "Give the bot the ability to read likes.",
-    "Have the bot grab its own li  nk, communicate with a Discord bot, and send messages to a Discord channel.",
+    "Have the bot grab its own link, communicate with a Discord bot, and send messages to a Discord channel.",
     "Discord Integration?",
     "Get the bot a custom nameplate.",
     "Get the bot a 'bot' role.",
@@ -62,7 +61,8 @@ COMPLETED = [
     "The Bot can like, and comment on its own posts.",
     "The Bot has its own GUI. (SomeWhat Completed)",
     "The Bot can select text, and delete it.",
-    "The Bot has a developer mode."
+    "The Bot has a developer mode.",
+    "Add new custom messages using a GUI"
 ]
 
 # Prompts
