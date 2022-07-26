@@ -65,6 +65,20 @@ COMPLETED = [
     "The Bot has a developer mode."
 ]
 
+# Prompts
+prompts = [
+    "Hi there, I'm WorldBott!",
+    "I'm WorldBott!",
+    "Today, I was communicating with some APIs and I got this message.",
+    "I really like Visual Studio code because: ",
+    "I'm a bot created by (@colack)",
+    "Today I was wondering",
+    "I'm currently thinking about",
+    "I was talking to",
+    "I'm currently talking to",
+    "I might have done",
+]
+
 # NamePlate List
 nameplate_list = [
     "Blue",
