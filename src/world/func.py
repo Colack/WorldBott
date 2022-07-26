@@ -260,56 +260,66 @@ def start():
 
 # Create a message and post it.
 def main():
+    close = sg.popup_yes_no("Change the custom message?", WINDOW_CUSTOM)
+    if close == "Yes":
+        x = True
+    else:
+        print("No custom message.")
+    STATUS = sg.popup_get_text("New Message: ")
     print(starting_message)
     field("create", True)
     time.sleep(QUICK_TIME)
     field("message", True)
     time.sleep(QUICK_TIME)
-    random_number = random.randint(LOW_RAND, HIGH_RAND)
-    previous = ""
-    if (previous == ""):
-        # If the previous message was empty, use the default message.
-        previous = default_message
-    if random_number == 1:
-        # Create a random string of numbers and letters
-        random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
-        message = random_string + defaultRandString
-    elif random_number == 2:
-        message = default2
-    elif random_number == 3:
-        # Grab a random dad joke of the internet.
-        url = "https://icanhazdadjoke.com/"
-        responce = requests.get(url, headers={"Accept": "application/json"})
-        message = responce.json()['joke']
-    elif random_number == 4:
-        message = default4
-    elif random_number == 5:
-        message = default5
-    elif random_number == 6:
-        message = default6
-    elif random_number == 7:
-        # Lets just grab a random image from this website.
-        url = "https://picsum.photos/200"
-        responce = requests.get(url)
-        url = responce.url
-
-        # Make sure that the boolean is true.
-        if (url != ""):
-            url_on = True
-
-        message = defaultRandom + url 
+    if (x == True):
+        message = STATUS
     else:
-        # Grab a random prompt from the list.
-        m = random.choice(prompts)
+        random_number = random.randint(LOW_RAND, HIGH_RAND)
+        previous = ""
+        if (previous == ""):
+            # If the previous message was empty, use the default message.
+            previous = default_message
+        if random_number == 1:
+            # Create a random string of numbers and letters
+            random_string = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(random.randint(1, 10)))
+            message = random_string + defaultRandString
+        elif random_number == 2:
+            message = default2
+        elif random_number == 3:
+            # Grab a random dad joke of the internet.
+            url = "https://icanhazdadjoke.com/"
+            responce = requests.get(url, headers={"Accept": "application/json"})
+            message = responce.json()['joke']
+        elif random_number == 4:
+            message = default4
+        elif random_number == 5:
+            message = default5
+        elif random_number == 6:
+            message = default6
+        elif random_number == 7:
+            # Lets just grab a random image from this website.
+            url = "https://picsum.photos/200"
+            responce = requests.get(url)
+            url = responce.url
 
-        r = requests.post(
-            "https://api.deepai.org/api/text-generator",
-        data={
-            'text': m,
-        },
-            headers={'api-key': key}
-        )
-        message = r.json()['output']
+            # Make sure that the boolean is true.
+            if (url != ""):
+                url_on = True
+
+            message = defaultRandom + url 
+        else:
+            # Grab a random prompt from the list.
+            m = random.choice(prompts)
+
+            r = requests.post(
+                "https://api.deepai.org/api/text-generator",
+            data={
+                'text': m,
+            },
+                headers={'api-key': key}
+            )
+            message = r.json()['output']
+    x = False
     if (message == previous):
         message = defaultPrevious
     printer("message")
