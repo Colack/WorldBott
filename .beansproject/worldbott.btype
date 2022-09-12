@@ -1,9 +1,0 @@
-Btype!
-title WorldBott
-author Colack
-manager Colack
-description Simple Python bot for [WUT] World
-version 1.1
-keywords bot python api deepai funny
-main main.py
-end
