@@ -19,7 +19,7 @@ username = USER
 password = PASS
 
 # Starting Message.
-starting_message = "<-- WorldBott has Woken Up! -->"
+starting_message = "Bot is up as @" + username
 
 # Window Names
 WINDOW_PROMPT = "WorldBott Prompt"
@@ -71,7 +71,6 @@ prompts = [
     "I'm WorldBott!",
     "Today, I was communicating with some APIs and I got this message.",
     "I really like Visual Studio code because: ",
-    "I'm a bot created by (@colack)",
     "Today I was wondering",
     "I'm currently thinking about",
     "I was talking to",
@@ -163,12 +162,15 @@ DEFAULT_WIDTH = 20
 DEFAULT_HEIGHT = 2
 
 # Current Version of the Bot.
-version = "2.1"
-num_version = 2.1
+version = "3.0"
+num_version = 3.0
+
+# Source
+source_code = "https://github.com/code-org-open-source/WorldBott"
 
 # Defaults
-default_comment = "AI-Generated message created by (@WorldBott). Contact (@colack) if you want to suggest a new message. (Or Template!)"
-default_status = "Hi There! I'm WorldBott!\nI'm a bot created by (@colack).\nI use DeepAI and a lot of pre-generated messages to create random status updates.\n\nContact (@colack) if you want to suggest a new message.\nI'm currently running version " + version + "."
+default_comment = "Default WorldBott Comment"
+default_status = "WorldBott " + version + "\nMade by Colack and Friends\n\n" + source_code
 default_message = ":)"
 
 # Custom Messages 
@@ -177,11 +179,11 @@ custom_message = [
 ]
 
 # Default Messages
-default2 = "I'm a bot created by (@colack)!"
+default2 = "Easy Dubs Gamers"
 default4 = "✌(ツ)"
 default5 = "🤖"
-default6 = "Don't forget, if you want to suggest a new message, contact (@colack)!"
-defaultPrevious = "I'm sorry, I couldn't find a new message for you."
+default6 = "My name is WorldBott Hartwell White. I live at 308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104. This is my confession."
+defaultPrevious = ":D"
 defaultRandom = "Here is a random image: "
 defaultRandString = " <-- My new favorite word!"
 
